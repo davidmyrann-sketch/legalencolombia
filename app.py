@@ -1,5 +1,6 @@
 import os
 import smtplib
+import threading
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from flask import Flask, render_template, request, redirect, url_for, flash
@@ -22,6 +23,23 @@ MATTER_LABELS = {
     'contrato': 'Contratos / Documentos',
     'otro':     'Otro asunto',
 }
+
+def send_email(subject, body, reply_to):
+    try:
+        msg = MIMEMultipart()
+        msg['From']     = SMTP_USER
+        msg['To']       = CONTACT_EMAIL
+        msg['Subject']  = subject
+        msg['Reply-To'] = reply_to
+        msg.attach(MIMEText(body, 'plain', 'utf-8'))
+
+        with smtplib.SMTP(SMTP_HOST, SMTP_PORT, timeout=15) as server:
+            server.starttls()
+            server.login(SMTP_USER, SMTP_PASS)
+            server.sendmail(SMTP_USER, CONTACT_EMAIL, msg.as_string())
+        app.logger.info('Mail sent OK')
+    except Exception as e:
+        app.logger.error(f'Mail error: {e}')
 
 @app.route('/')
 def index():
@@ -53,25 +71,10 @@ Asunto:   {matter_label}
 Mensaje:
 {message or '(sin mensaje)'}
 """
+    subject = f'Legal en Colombia — Consulta de {name} ({matter_label})'
+    threading.Thread(target=send_email, args=(subject, body, email), daemon=True).start()
 
-    try:
-        msg = MIMEMultipart()
-        msg['From']     = SMTP_USER
-        msg['To']       = CONTACT_EMAIL
-        msg['Subject']  = f'Legal en Colombia — Consulta de {name} ({matter_label})'
-        msg['Reply-To'] = email
-        msg.attach(MIMEText(body, 'plain', 'utf-8'))
-
-        with smtplib.SMTP(SMTP_HOST, SMTP_PORT, timeout=10) as server:
-            server.starttls()
-            server.login(SMTP_USER, SMTP_PASS)
-            server.sendmail(SMTP_USER, CONTACT_EMAIL, msg.as_string())
-
-        flash('¡Gracias! Le responderé en menos de 24 horas. / Thank you! I\'ll respond within 24 hours.', 'success')
-    except Exception as e:
-        app.logger.error(f'Mail error: {e}')
-        flash(f'Error: {e}', 'error')
-
+    flash('¡Gracias! Le responderé en menos de 24 horas. / Thank you! I\'ll respond within 24 hours.', 'success')
     return redirect(url_for('index') + '#contacto')
 
 if __name__ == '__main__':
