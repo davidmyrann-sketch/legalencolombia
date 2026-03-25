@@ -9,7 +9,7 @@ app.secret_key = os.environ.get('SECRET_KEY', 'legalencolombia-2026')
 
 CONTACT_EMAIL = os.environ.get('CONTACT_EMAIL', 'pathy.higuera@gmail.com')
 SMTP_HOST     = 'smtp.gmail.com'
-SMTP_PORT     = 465
+SMTP_PORT     = 587
 SMTP_USER     = 'heidimybot@gmail.com'
 SMTP_PASS     = os.environ.get('SMTP_PASS', 'rdfsfbvwzbjahaia')
 
@@ -62,7 +62,8 @@ Mensaje:
         msg['Reply-To'] = email
         msg.attach(MIMEText(body, 'plain', 'utf-8'))
 
-        with smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT, timeout=10) as server:
+        with smtplib.SMTP(SMTP_HOST, SMTP_PORT, timeout=10) as server:
+            server.starttls()
             server.login(SMTP_USER, SMTP_PASS)
             server.sendmail(SMTP_USER, CONTACT_EMAIL, msg.as_string())
 
