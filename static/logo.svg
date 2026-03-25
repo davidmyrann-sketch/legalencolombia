@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 72" width="280" height="72">
+  <!-- Scales of justice icon -->
+  <g transform="translate(0,4)">
+    <!-- Top bar -->
+    <rect x="22" y="10" width="2" height="32" fill="#C9A84C"/>
+    <!-- Horizontal beam -->
+    <rect x="6" y="10" width="34" height="2" fill="#C9A84C"/>
+    <!-- Left pan -->
+    <ellipse cx="8" cy="24" rx="7" ry="3" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
+    <line x1="8" y1="12" x2="8" y2="21" stroke="#C9A84C" stroke-width="1.2"/>
+    <!-- Right pan -->
+    <ellipse cx="38" cy="26" rx="7" ry="3" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
+    <line x1="38" y1="12" x2="38" y2="23" stroke="#C9A84C" stroke-width="1.2"/>
+    <!-- Base -->
+    <rect x="17" y="42" width="12" height="2" fill="#C9A84C"/>
+  </g>
+  <!-- Text -->
+  <text x="58" y="30" font-family="'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif" font-size="20" font-weight="700" fill="#1C2B3A" letter-spacing="1">LEGAL EN COLOMBIA</text>
+  <text x="58" y="48" font-family="'Helvetica Neue', Arial, sans-serif" font-size="9.5" font-weight="400" fill="#C9A84C" letter-spacing="3">PATRICIA RAMOS HIGUERA · ABOGADA</text>
+</svg>

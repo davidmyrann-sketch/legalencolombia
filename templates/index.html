@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Patricia Ramos Higuera — Abogada especializada en derecho de familia, visas, extranjería y asesoría legal para extranjeros en Colombia."/>
+  <meta name="keywords" content="abogada colombia, lawyer colombia, divorcio colombia, visa colombia, expat lawyer colombia, legal en colombia"/>
+  <title>Legal en Colombia — Patricia Ramos Higuera, Abogada</title>
+  <link rel="icon" type="image/svg+xml" href="/static/logo.svg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/static/style.css"/>
+</head>
+<body>
+
+<!-- ==============================
+     NAV
+============================== -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo"><img src="/static/logo.svg" alt="Legal en Colombia"/></a>
+    <div class="nav-links">
+      <a href="#servicios" data-es="Servicios" data-en="Services">Servicios</a>
+      <a href="#sobre-patricia" data-es="Sobre Patricia" data-en="About">Sobre Patricia</a>
+      <a href="#proceso" data-es="Cómo funciona" data-en="How it works">Cómo funciona</a>
+      <a href="#testimonios" data-es="Testimonios" data-en="Testimonials">Testimonios</a>
+      <div class="lang-toggle">
+        <button class="lang-btn active" onclick="setLang('es')">ES</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+      </div>
+      <a href="#contacto" class="btn btn-gold btn-sm" data-es="Consulta gratuita" data-en="Free consultation">Consulta gratuita</a>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#servicios" onclick="toggleMenu()" data-es="Servicios" data-en="Services">Servicios</a>
+    <a href="#sobre-patricia" onclick="toggleMenu()" data-es="Sobre Patricia" data-en="About">Sobre Patricia</a>
+    <a href="#proceso" onclick="toggleMenu()" data-es="Cómo funciona" data-en="How it works">Cómo funciona</a>
+    <a href="#testimonios" onclick="toggleMenu()" data-es="Testimonios" data-en="Testimonials">Testimonios</a>
+    <a href="#contacto" class="btn btn-gold" onclick="toggleMenu()" data-es="Consulta gratuita" data-en="Free consultation">Consulta gratuita</a>
+  </div>
+</nav>
+
+<!-- ==============================
+     HERO
+============================== -->
+<section class="hero" id="inicio">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-inner">
+    <div class="hero-left fade-in">
+      <div class="tag tag-gold" data-es="Abogada · Medellín, Colombia" data-en="Lawyer · Medellín, Colombia">Abogada · Medellín, Colombia</div>
+      <h1>
+        <span data-es="Su situación legal en Colombia<br/><span class='gold'>tiene solución.</span>" data-en="Your legal situation in Colombia<br/><span class='gold'>has a solution.</span>">
+          Su situación legal en Colombia<br/><span class="gold">tiene solución.</span>
+        </span>
+      </h1>
+      <span class="hero-title-sub" data-es="Patricia Ramos Higuera — Abogada" data-en="Patricia Ramos Higuera — Attorney at Law">Patricia Ramos Higuera — Abogada</span>
+      <div class="hero-divider"></div>
+      <p class="lead" data-es="Ayudo a extranjeros y colombianos a resolver sus asuntos legales con claridad, sin importar en qué parte del mundo se encuentren. Divorcios, custodia, visas, apertura de cuentas bancarias y más." data-en="I help foreigners and Colombians resolve their legal matters with clarity, no matter where in the world they are. Divorces, custody, visas, bank account openings, and more.">
+        Ayudo a extranjeros y colombianos a resolver sus asuntos legales con claridad, sin importar en qué parte del mundo se encuentren. Divorcios, custodia, visas, apertura de cuentas bancarias y más.
+      </p>
+      <div class="hero-btns">
+        <a href="#contacto" class="btn btn-gold btn-lg" data-es="Consulta gratuita →" data-en="Free consultation →">Consulta gratuita →</a>
+        <a href="#servicios" class="btn btn-outline-ivory btn-lg" data-es="Ver servicios" data-en="View services">Ver servicios</a>
+      </div>
+    </div>
+    <div class="hero-right fade-in" style="animation-delay:0.2s">
+      <div class="hero-photo-wrap">
+        <div class="hero-photo" id="heroPhotoContainer">
+          <!-- Profile photo will go here — replace src with actual photo -->
+          <div class="hero-photo-placeholder" id="heroPlaceholder">
+            <div class="hero-initials">PR</div>
+            <div class="hero-photo-name">Patricia Ramos Higuera</div>
+            <div class="hero-photo-title" data-es="Abogada · Colombia" data-en="Attorney at Law · Colombia">Abogada · Colombia</div>
+          </div>
+        </div>
+        <div class="hero-photo-badge">
+          <span class="num">15+</span>
+          <span class="lbl" data-es="Años de<br/>experiencia" data-en="Years of<br/>experience">Años de<br/>experiencia</span>
+        </div>
+      </div>
+      <div class="hero-credentials">
+        <div class="hero-cred">
+          <span class="cred-icon">🌎</span>
+          <p data-es="<strong>Servicio internacional</strong> — Atiendo clientes desde cualquier país vía videollamada" data-en="<strong>International service</strong> — I serve clients from any country via video call"><strong>Servicio internacional</strong> — Atiendo clientes desde cualquier país vía videollamada</p>
+        </div>
+        <div class="hero-cred">
+          <span class="cred-icon">🇨🇴</span>
+          <p data-es="<strong>Licenciada en Colombia</strong> — Miembro del Colegio de Abogados de Colombia" data-en="<strong>Licensed in Colombia</strong> — Member of the Colombian Bar Association"><strong>Licenciada en Colombia</strong> — Miembro del Colegio de Abogados de Colombia</p>
+        </div>
+        <div class="hero-cred">
+          <span class="cred-icon">🗣️</span>
+          <p data-es="<strong>Español e inglés</strong> — Comunicación clara sin barreras idiomáticas" data-en="<strong>Spanish and English</strong> — Clear communication without language barriers"><strong>Español e inglés</strong> — Comunicación clara sin barreras idiomáticas</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     TRUST BAR
+============================== -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item"><span class="icon">⚖️</span><span data-es="Derecho de Familia" data-en="Family Law">Derecho de Familia</span></div>
+    <div class="trust-item"><span class="icon">🛂</span><span data-es="Visas e Inmigración" data-en="Visas & Immigration">Visas e Inmigración</span></div>
+    <div class="trust-item"><span class="icon">🏦</span><span data-es="Servicios para Extranjeros" data-en="Expat Services">Servicios para Extranjeros</span></div>
+    <div class="trust-item"><span class="icon">📋</span><span data-es="Contratos y Litigios" data-en="Contracts & Litigation">Contratos y Litigios</span></div>
+    <div class="trust-item"><span class="icon">🌐</span><span data-es="Consultas Online" data-en="Online Consultations">Consultas Online</span></div>
+  </div>
+</div>
+
+<!-- ==============================
+     PROBLEM
+============================== -->
+<section class="section-problem" id="problema">
+  <div class="container">
+    <div class="problem-grid">
+      <div class="problem-list fade-in">
+        <div class="problem-item">
+          <span class="icon">⚠️</span>
+          <div class="problem-item-text">
+            <h4 data-es="Divorcio o separación con bienes en Colombia" data-en="Divorce or separation with assets in Colombia">Divorcio o separación con bienes en Colombia</h4>
+            <p data-es="Vive en el extranjero pero su matrimonio o los bienes están registrados en Colombia — el proceso legal es complejo sin representación local." data-en="You live abroad but your marriage or assets are registered in Colombia — the legal process is complex without local representation.">Vive en el extranjero pero su matrimonio o los bienes están registrados en Colombia — el proceso legal es complejo sin representación local.</p>
+          </div>
+        </div>
+        <div class="problem-item">
+          <span class="icon">👶</span>
+          <div class="problem-item-text">
+            <h4 data-es="Custodia de hijos o pensión alimentaria" data-en="Child custody or child support">Custodia de hijos o pensión alimentaria</h4>
+            <p data-es="Disputas familiares que cruzan fronteras son especialmente difíciles. Necesita un abogado que entienda la ley colombiana y la realidad transnacional." data-en="Family disputes that cross borders are especially difficult. You need a lawyer who understands Colombian law and the transnational reality.">Disputas familiares que cruzan fronteras son especialmente difíciles. Necesita un abogado que entienda la ley colombiana y la realidad transnacional.</p>
+          </div>
+        </div>
+        <div class="problem-item">
+          <span class="icon">🛂</span>
+          <div class="problem-item-text">
+            <h4 data-es="Visa rechazada o proceso migratorio bloqueado" data-en="Visa rejected or immigration process blocked">Visa rechazada o proceso migratorio bloqueado</h4>
+            <p data-es="Los trámites de visas en Colombia tienen requisitos específicos. Un error puede significar meses de demora o la denegación definitiva." data-en="Visa procedures in Colombia have specific requirements. A mistake can mean months of delay or permanent denial.">Los trámites de visas en Colombia tienen requisitos específicos. Un error puede significar meses de demora o la denegación definitiva.</p>
+          </div>
+        </div>
+        <div class="problem-item">
+          <span class="icon">🏦</span>
+          <div class="problem-item-text">
+            <h4 data-es="No puede abrir una cuenta bancaria en Colombia" data-en="Can't open a bank account in Colombia">No puede abrir una cuenta bancaria en Colombia</h4>
+            <p data-es="Como extranjero, los bancos colombianos tienen requisitos que nadie le explica claramente. Con el respaldo legal correcto, es posible." data-en="As a foreigner, Colombian banks have requirements nobody explains clearly. With the right legal support, it's possible.">Como extranjero, los bancos colombianos tienen requisitos que nadie le explica claramente. Con el respaldo legal correcto, es posible.</p>
+          </div>
+        </div>
+      </div>
+      <div class="problem-right fade-in" style="animation-delay:0.15s">
+        <div class="tag tag-navy" data-es="¿Le suena familiar?" data-en="Does this sound familiar?">¿Le suena familiar?</div>
+        <h2 data-es="La distancia no debería ser un obstáculo para defender sus derechos" data-en="Distance shouldn't be an obstacle to defending your rights">La distancia no debería ser un obstáculo para defender sus derechos</h2>
+        <p class="lead" data-es="Muchos de mis clientes me contactan agotados, confundidos y con plazos que se acortan. Han intentado navegar el sistema legal colombiano solos — y los resultados han sido costosos." data-en="Many of my clients contact me exhausted, confused, and with shrinking deadlines. They've tried to navigate the Colombian legal system alone — and the results have been costly.">Muchos de mis clientes me contactan agotados, confundidos y con plazos que se acortan. Han intentado navegar el sistema legal colombiano solos — y los resultados han sido costosos.</p>
+        <p data-es="La buena noticia: con la representación correcta, la mayoría de estos problemas se pueden resolver de manera eficiente, incluso si usted está en otro continente." data-en="The good news: with the right representation, most of these problems can be resolved efficiently, even if you're on another continent.">La buena noticia: con la representación correcta, la mayoría de estos problemas se pueden resolver de manera eficiente, incluso si usted está en otro continente.</p>
+        <div class="highlight-box">
+          <p data-es="<strong>No necesita viajar a Colombia</strong> para iniciar su proceso legal. Realizamos consultas por videollamada, y me encargo de toda la gestión presencial cuando es necesario." data-en="<strong>You don't need to travel to Colombia</strong> to start your legal process. We hold consultations by video call, and I handle all in-person management when needed."><strong>No necesita viajar a Colombia</strong> para iniciar su proceso legal. Realizamos consultas por videollamada, y me encargo de toda la gestión presencial cuando es necesario.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     SERVICES
+============================== -->
+<section class="section-services" id="servicios">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="tag tag-gold" data-es="Áreas de práctica" data-en="Practice areas">Áreas de práctica</div>
+      <h2 data-es="Asesoría legal integral para su situación" data-en="Comprehensive legal advice for your situation">Asesoría legal integral para su situación</h2>
+      <p class="lead" data-es="Especializada en los desafíos legales únicos que enfrentan los extranjeros y los colombianos en el exterior." data-en="Specialising in the unique legal challenges faced by foreigners and Colombians abroad.">Especializada en los desafíos legales únicos que enfrentan los extranjeros y los colombianos en el exterior.</p>
+    </div>
+    <div class="services-grid">
+      <!-- Derecho de Familia -->
+      <div class="service-card fade-in">
+        <div class="service-icon">⚖️</div>
+        <h3 data-es="Derecho de Familia" data-en="Family Law">Derecho de Familia</h3>
+        <p data-es="Represento a clientes en procesos de divorcio, liquidación de sociedad conyugal, custodia de hijos y alimentos. Con especial atención a casos transnacionales." data-en="I represent clients in divorce proceedings, marital property liquidation, child custody and alimony. With special attention to transnational cases.">Represento a clientes en procesos de divorcio, liquidación de sociedad conyugal, custodia de hijos y alimentos. Con especial atención a casos transnacionales.</p>
+        <div class="service-tags">
+          <span class="service-tag" data-es="Divorcio" data-en="Divorce">Divorcio</span>
+          <span class="service-tag" data-es="Custodia" data-en="Custody">Custodia</span>
+          <span class="service-tag" data-es="Alimentos" data-en="Child support">Alimentos</span>
+          <span class="service-tag" data-es="Bienes" data-en="Property">Bienes</span>
+        </div>
+      </div>
+      <!-- Visas -->
+      <div class="service-card fade-in" style="animation-delay:0.1s">
+        <div class="service-icon">🛂</div>
+        <h3 data-es="Visas e Inmigración" data-en="Visas & Immigration">Visas e Inmigración</h3>
+        <p data-es="Gestión completa de visas de residencia, trabajo, cónyuge, inversionista y turismo extendido. Acompaño todo el proceso ante Cancillería." data-en="Full management of residence, work, spouse, investor and extended tourism visas. I guide the entire process before the Ministry of Foreign Affairs.">Gestión completa de visas de residencia, trabajo, cónyuge, inversionista y turismo extendido. Acompaño todo el proceso ante Cancillería.</p>
+        <div class="service-tags">
+          <span class="service-tag" data-es="Visa M" data-en="Visa M">Visa M</span>
+          <span class="service-tag" data-es="Visa R" data-en="Visa R">Visa R</span>
+          <span class="service-tag" data-es="Cónyuge" data-en="Spouse">Cónyuge</span>
+          <span class="service-tag" data-es="Inversionista" data-en="Investor">Inversionista</span>
+        </div>
+      </div>
+      <!-- Servicios para extranjeros -->
+      <div class="service-card fade-in" style="animation-delay:0.2s">
+        <div class="service-icon">🌎</div>
+        <h3 data-es="Servicios para Extranjeros" data-en="Expat Legal Services">Servicios para Extranjeros</h3>
+        <p data-es="Acompañamiento legal para extranjeros que llegan, viven o salen de Colombia: apertura de cuentas bancarias, cédula de extranjería, notarización y apostilla." data-en="Legal support for foreigners arriving, living in, or leaving Colombia: bank account opening, foreigners ID, notarisation and apostille.">Acompañamiento legal para extranjeros que llegan, viven o salen de Colombia: apertura de cuentas bancarias, cédula de extranjería, notarización y apostilla.</p>
+        <div class="service-tags">
+          <span class="service-tag" data-es="Cuenta bancaria" data-en="Bank account">Cuenta bancaria</span>
+          <span class="service-tag" data-es="Cédula extranjería" data-en="Foreign ID">Cédula</span>
+          <span class="service-tag" data-es="Apostilla" data-en="Apostille">Apostilla</span>
+        </div>
+      </div>
+      <!-- Contratos -->
+      <div class="service-card fade-in" style="animation-delay:0.1s">
+        <div class="service-icon">📝</div>
+        <h3 data-es="Contratos y Acuerdos" data-en="Contracts & Agreements">Contratos y Acuerdos</h3>
+        <p data-es="Redacción, revisión y negociación de contratos de arrendamiento, compraventa, acuerdos prenupciales y contratos de trabajo para extranjeros en Colombia." data-en="Drafting, review and negotiation of rental agreements, purchase contracts, prenuptial agreements and employment contracts for foreigners in Colombia.">Redacción, revisión y negociación de contratos de arrendamiento, compraventa, acuerdos prenupciales y contratos de trabajo para extranjeros en Colombia.</p>
+        <div class="service-tags">
+          <span class="service-tag" data-es="Arrendamiento" data-en="Rental">Arrendamiento</span>
+          <span class="service-tag" data-es="Compraventa" data-en="Purchase">Compraventa</span>
+          <span class="service-tag" data-es="Prenupcial" data-en="Prenuptial">Prenupcial</span>
+        </div>
+      </div>
+      <!-- Litigios -->
+      <div class="service-card fade-in" style="animation-delay:0.2s">
+        <div class="service-icon">🏛️</div>
+        <h3 data-es="Litigios y Disputas" data-en="Litigation & Disputes">Litigios y Disputas</h3>
+        <p data-es="Representación en disputas civiles, reclamaciones de herencias, impugnaciones de contratos y conflictos laborales ante los juzgados colombianos." data-en="Representation in civil disputes, inheritance claims, contract challenges and labour conflicts before Colombian courts.">Representación en disputas civiles, reclamaciones de herencias, impugnaciones de contratos y conflictos laborales ante los juzgados colombianos.</p>
+        <div class="service-tags">
+          <span class="service-tag" data-es="Civil" data-en="Civil">Civil</span>
+          <span class="service-tag" data-es="Herencias" data-en="Inheritance">Herencias</span>
+          <span class="service-tag" data-es="Laboral" data-en="Labour">Laboral</span>
+        </div>
+      </div>
+      <!-- Derecho Corporativo -->
+      <div class="service-card fade-in" style="animation-delay:0.3s">
+        <div class="service-icon">🏢</div>
+        <h3 data-es="Constitución de Empresas" data-en="Company Formation">Constitución de Empresas</h3>
+        <p data-es="Asesoría para extranjeros que desean constituir una empresa en Colombia: elección de figura jurídica, registro ante Cámara de Comercio y apertura de cuenta empresarial." data-en="Advice for foreigners wishing to set up a company in Colombia: choice of legal structure, registration at the Chamber of Commerce and business account opening.">Asesoría para extranjeros que desean constituir una empresa en Colombia: elección de figura jurídica, registro ante Cámara de Comercio y apertura de cuenta empresarial.</p>
+        <div class="service-tags">
+          <span class="service-tag">SAS</span>
+          <span class="service-tag" data-es="Cámara de Comercio" data-en="Chamber of Commerce">C. Comercio</span>
+          <span class="service-tag" data-es="RUT" data-en="Tax ID">RUT</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     ABOUT
+============================== -->
+<section class="section-about" id="sobre-patricia">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual fade-in">
+        <div class="about-img-wrap" id="aboutPhotoContainer">
+          <div class="about-img-gold-line"></div>
+          <div class="about-img-placeholder" id="aboutPlaceholder">
+            <div class="about-initials">PR</div>
+            <div style="color:rgba(250,248,243,0.6);font-size:1rem;font-family:var(--font-serif);">Patricia Ramos Higuera</div>
+            <div style="color:rgba(250,248,243,0.35);font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;" data-es="Abogada" data-en="Attorney at Law">Abogada</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-content fade-in" style="animation-delay:0.2s">
+        <div class="tag tag-gold" data-es="Sobre Patricia" data-en="About Patricia">Sobre Patricia</div>
+        <h2 data-es="Su caso importa. Yo me encargo." data-en="Your case matters. I'll handle it.">Su caso importa. Yo me encargo.</h2>
+        <p class="lead" data-es="Soy Patricia Ramos Higuera, abogada colombiana con más de 15 años de experiencia en derecho de familia, derecho migratorio y asesoría legal para extranjeros." data-en="I'm Patricia Ramos Higuera, a Colombian lawyer with more than 15 years of experience in family law, immigration law and legal advice for foreigners.">Soy Patricia Ramos Higuera, abogada colombiana con más de 15 años de experiencia en derecho de familia, derecho migratorio y asesoría legal para extranjeros.</p>
+        <p data-es="He ayudado a cientos de personas — colombianos en el exterior, extranjeros recién llegados y familias en situaciones complejas — a resolver sus asuntos legales en Colombia con claridad y eficiencia." data-en="I have helped hundreds of people — Colombians abroad, newly arrived foreigners and families in complex situations — to resolve their legal matters in Colombia with clarity and efficiency.">He ayudado a cientos de personas — colombianos en el exterior, extranjeros recién llegados y familias en situaciones complejas — a resolver sus asuntos legales en Colombia con claridad y eficiencia.</p>
+        <div class="about-qual">
+          <div class="about-qual-item">
+            <span class="icon">🎓</span>
+            <p data-es="<strong>Abogada</strong> — Título universitario en Derecho, con especialización en Derecho de Familia y Derecho Internacional Privado." data-en="<strong>Lawyer</strong> — Law degree, with specialisation in Family Law and Private International Law."><strong>Abogada</strong> — Título universitario en Derecho, con especialización en Derecho de Familia y Derecho Internacional Privado.</p>
+          </div>
+          <div class="about-qual-item">
+            <span class="icon">🌐</span>
+            <p data-es="<strong>Bilingüe</strong> — Atiendo en español e inglés, sin necesidad de intermediarios ni traductores." data-en="<strong>Bilingual</strong> — I work in Spanish and English, with no need for intermediaries or translators."><strong>Bilingüe</strong> — Atiendo en español e inglés, sin necesidad de intermediarios ni traductores.</p>
+          </div>
+          <div class="about-qual-item">
+            <span class="icon">💻</span>
+            <p data-es="<strong>100% Online disponible</strong> — Consultas por Zoom, Teams o WhatsApp. Gestión de documentos digital y firma electrónica." data-en="<strong>100% Online available</strong> — Consultations via Zoom, Teams or WhatsApp. Digital document management and e-signatures."><strong>100% Online disponible</strong> — Consultas por Zoom, Teams o WhatsApp. Gestión de documentos digital y firma electrónica.</p>
+          </div>
+          <div class="about-qual-item">
+            <span class="icon">🏛️</span>
+            <p data-es="<strong>Colegiada en Colombia</strong> — Tarjeta profesional activa. Miembro del Colegio de Abogados de Colombia." data-en="<strong>Registered in Colombia</strong> — Active professional card. Member of the Colombian Bar Association."><strong>Colegiada en Colombia</strong> — Tarjeta profesional activa. Miembro del Colegio de Abogados de Colombia.</p>
+          </div>
+        </div>
+        <div class="about-flags">
+          <span>🇨🇴</span><span>🇺🇸</span><span>🇬🇧</span><span>🇪🇸</span><span>🇩🇪</span><span>🇳🇴</span>
+          <p data-es="Clientes de más de 20 países" data-en="Clients from more than 20 countries">Clientes de más de 20 países</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     STATS
+============================== -->
+<section class="section-stats">
+  <div class="stats-inner">
+    <div class="stat-item fade-in">
+      <span class="num">15+</span>
+      <p data-es="Años de experiencia" data-en="Years of experience">Años de experiencia</p>
+    </div>
+    <div class="stat-item fade-in" style="animation-delay:0.1s">
+      <span class="num">500+</span>
+      <p data-es="Clientes atendidos" data-en="Clients served">Clientes atendidos</p>
+    </div>
+    <div class="stat-item fade-in" style="animation-delay:0.2s">
+      <span class="num">20+</span>
+      <p data-es="Países de origen de clientes" data-en="Client countries of origin">Países de origen</p>
+    </div>
+    <div class="stat-item fade-in" style="animation-delay:0.3s">
+      <span class="num">98%</span>
+      <p data-es="Tasa de satisfacción" data-en="Satisfaction rate">Tasa de satisfacción</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     PROCESS
+============================== -->
+<section class="section-process" id="proceso">
+  <div class="container">
+    <div class="section-header text-center fade-in">
+      <div class="tag tag-gold" data-es="Proceso" data-en="Process">Proceso</div>
+      <h2 data-es="Así de simple es trabajar conmigo" data-en="This is how simple it is to work with me">Así de simple es trabajar conmigo</h2>
+      <p class="lead" data-es="Sin complicaciones. Sin viajes. Sin incertidumbre." data-en="No complications. No travel. No uncertainty.">Sin complicaciones. Sin viajes. Sin incertidumbre.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step fade-in">
+        <div class="step-num">1</div>
+        <h4 data-es="Consulta inicial gratuita" data-en="Free initial consultation">Consulta inicial gratuita</h4>
+        <p data-es="Me cuenta su situación por videollamada o WhatsApp. Evaluamos su caso sin costo y le explico las opciones disponibles." data-en="Tell me your situation by video call or WhatsApp. We evaluate your case at no cost and I explain the available options.">Me cuenta su situación por videollamada o WhatsApp. Evaluamos su caso sin costo y le explico las opciones disponibles.</p>
+      </div>
+      <div class="process-step fade-in" style="animation-delay:0.15s">
+        <div class="step-num">2</div>
+        <h4 data-es="Análisis y estrategia" data-en="Analysis and strategy">Análisis y estrategia</h4>
+        <p data-es="Reviso la documentación y diseño la estrategia legal más eficiente para su situación específica." data-en="I review the documentation and design the most efficient legal strategy for your specific situation.">Reviso la documentación y diseño la estrategia legal más eficiente para su situación específica.</p>
+      </div>
+      <div class="process-step fade-in" style="animation-delay:0.3s">
+        <div class="step-num">3</div>
+        <h4 data-es="Gestión completa" data-en="Full management">Gestión completa</h4>
+        <p data-es="Me encargo de todos los trámites ante las autoridades, juzgados y entidades colombianas. Usted no necesita estar presente." data-en="I handle all procedures before Colombian authorities, courts and agencies. You don't need to be present.">Me encargo de todos los trámites ante las autoridades, juzgados y entidades colombianas. Usted no necesita estar presente.</p>
+      </div>
+      <div class="process-step fade-in" style="animation-delay:0.45s">
+        <div class="step-num">4</div>
+        <h4 data-es="Resolución y seguimiento" data-en="Resolution and follow-up">Resolución y seguimiento</h4>
+        <p data-es="Le informo de cada avance. Una vez resuelto, continúo disponible para cualquier consulta posterior relacionada con su caso." data-en="I update you on every development. Once resolved, I remain available for any subsequent questions related to your case.">Le informo de cada avance. Una vez resuelto, continúo disponible para cualquier consulta posterior relacionada con su caso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     TESTIMONIALS
+============================== -->
+<section class="section-testimonials" id="testimonios">
+  <div class="container">
+    <div class="section-header text-center fade-in">
+      <div class="tag tag-gold" data-es="Testimonios" data-en="Testimonials">Testimonios</div>
+      <h2 data-es="Lo que dicen mis clientes" data-en="What my clients say">Lo que dicen mis clientes</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card fade-in">
+        <div class="stars">★★★★★</div>
+        <blockquote data-es='"Patricia manejó mi divorcio desde Noruega con total profesionalismo. Nunca tuve que viajar a Colombia. Todo el proceso fue claro, rápido y los resultados fueron exactamente lo que necesitaba."' data-en='"Patricia handled my divorce from Norway with total professionalism. I never had to travel to Colombia. The entire process was clear, fast and the results were exactly what I needed."'>"Patricia manejó mi divorcio desde Noruega con total profesionalismo. Nunca tuve que viajar a Colombia. Todo el proceso fue claro, rápido y los resultados fueron exactamente lo que necesitaba."</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar">M</div>
+          <div>
+            <div class="author-name">Marta L.</div>
+            <div class="author-meta" data-es="Colombiana residente en Oslo, Noruega" data-en="Colombian resident in Oslo, Norway">Colombiana residente en Oslo, Noruega</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-in" style="animation-delay:0.1s">
+        <div class="stars">★★★★★</div>
+        <blockquote data-es='"I needed help with my visa and bank account in Colombia. Patricia was incredibly helpful, professional and always available. She explained everything in English. I highly recommend her."' data-en='"I needed help with my visa and bank account in Colombia. Patricia was incredibly helpful, professional and always available. She explained everything in English. I highly recommend her."'>"I needed help with my visa and bank account in Colombia. Patricia was incredibly helpful, professional and always available. She explained everything in English. I highly recommend her."</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar">J</div>
+          <div>
+            <div class="author-name">James R.</div>
+            <div class="author-meta" data-es="Expat estadounidense en Medellín" data-en="American expat in Medellín">Expat estadounidense en Medellín</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-in" style="animation-delay:0.2s">
+        <div class="stars">★★★★★</div>
+        <blockquote data-es='"La custodia de mis hijos era una situación muy difícil. Patricia entendió la complejidad del caso transnacional desde el principio. Consiguió un acuerdo justo en tiempo récord."' data-en='"Child custody was a very difficult situation. Patricia understood the complexity of the transnational case from the start. She achieved a fair agreement in record time."'>"La custodia de mis hijos era una situación muy difícil. Patricia entendió la complejidad del caso transnacional desde el principio. Consiguió un acuerdo justo en tiempo récord."</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar">C</div>
+          <div>
+            <div class="author-name">Carlos M.</div>
+            <div class="author-meta" data-es="Colombiano residente en Alemania" data-en="Colombian resident in Germany">Colombiano residente en Alemania</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     CONTACT
+============================== -->
+<section class="section-contact" id="contacto">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-left fade-in">
+        <div class="tag tag-gold" data-es="Contácteme" data-en="Contact me">Contácteme</div>
+        <h2 data-es="Hablemos de su situación" data-en="Let's talk about your situation">Hablemos de su situación</h2>
+        <p class="lead" data-es="La primera consulta es gratuita. Cuénteme su caso y le digo cómo puedo ayudarle." data-en="The first consultation is free. Tell me your case and I'll explain how I can help you.">La primera consulta es gratuita. Cuénteme su caso y le digo cómo puedo ayudarle.</p>
+        <div class="contact-info">
+          <div class="contact-item">
+            <span class="ci-icon">📱</span>
+            <div class="contact-item-text">
+              <h5>WhatsApp</h5>
+              <a href="https://wa.me/573000000000">+57 300 000 0000</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="ci-icon">✉️</span>
+            <div class="contact-item-text">
+              <h5>Email</h5>
+              <a href="mailto:patricia@legalencolombia.com">patricia@legalencolombia.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="ci-icon">📍</span>
+            <div class="contact-item-text">
+              <h5 data-es="Ubicación" data-en="Location">Ubicación</h5>
+              <p>Medellín, Antioquia, Colombia</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="ci-icon">🕐</span>
+            <div class="contact-item-text">
+              <h5 data-es="Horario" data-en="Hours">Horario</h5>
+              <p data-es="Lun–Vie 8:00–18:00 (COT) · Videollamadas internacionales con cita previa" data-en="Mon–Fri 8:00–18:00 (COT) · International video calls by appointment">Lun–Vie 8:00–18:00 (COT) · Videollamadas internacionales con cita previa</p>
+            </div>
+          </div>
+        </div>
+        <div class="urgency-box">
+          <p data-es="⏱️ <strong>¿Asunto urgente?</strong> Para casos con plazos judiciales inminentes, contácteme directamente por WhatsApp con «URGENTE» en el mensaje." data-en="⏱️ <strong>Urgent matter?</strong> For cases with imminent court deadlines, contact me directly via WhatsApp with 'URGENT' in the message.">⏱️ <strong>¿Asunto urgente?</strong> Para casos con plazos judiciales inminentes, contácteme directamente por WhatsApp con «URGENTE» en el mensaje.</p>
+        </div>
+      </div>
+
+      <div class="contact-form fade-in" style="animation-delay:0.2s">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% for category, message in messages %}
+            <div class="flash-msg flash-{{ category }}">{{ message }}</div>
+          {% endfor %}
+        {% endwith %}
+        <form method="POST" action="/contacto">
+          <div class="form-row">
+            <div class="form-group">
+              <label data-es="Nombre completo *" data-en="Full name *">Nombre completo *</label>
+              <input type="text" name="name" placeholder="Su nombre" required/>
+            </div>
+            <div class="form-group">
+              <label data-es="Correo electrónico *" data-en="Email address *">Correo electrónico *</label>
+              <input type="email" name="email" placeholder="su@correo.com" required/>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label data-es="País de residencia" data-en="Country of residence">País de residencia</label>
+              <input type="text" name="country" placeholder="Noruega, EE.UU., Colombia..."/>
+            </div>
+            <div class="form-group">
+              <label data-es="Teléfono / WhatsApp" data-en="Phone / WhatsApp">Teléfono / WhatsApp</label>
+              <input type="tel" name="phone" placeholder="+47 / +1 / +57..."/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label data-es="Tipo de asunto" data-en="Type of matter">Tipo de asunto</label>
+            <select name="matter">
+              <option value="" data-es="Seleccione..." data-en="Select...">Seleccione...</option>
+              <option value="familia" data-es="Divorcio / Separación" data-en="Divorce / Separation">Divorcio / Separación</option>
+              <option value="custodia" data-es="Custodia de hijos" data-en="Child custody">Custodia de hijos</option>
+              <option value="visa" data-es="Visa / Migración" data-en="Visa / Immigration">Visa / Migración</option>
+              <option value="cuenta" data-es="Apertura cuenta bancaria" data-en="Bank account opening">Apertura cuenta bancaria</option>
+              <option value="empresa" data-es="Constitución de empresa" data-en="Company formation">Constitución de empresa</option>
+              <option value="contrato" data-es="Contratos / Documentos" data-en="Contracts / Documents">Contratos / Documentos</option>
+              <option value="otro" data-es="Otro asunto" data-en="Other matter">Otro asunto</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label data-es="Describa brevemente su situación" data-en="Briefly describe your situation">Describa brevemente su situación</label>
+            <textarea name="message" placeholder="Cuénteme los detalles relevantes de su caso..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold form-submit btn-lg" data-es="Solicitar consulta gratuita →" data-en="Request free consultation →">Solicitar consulta gratuita →</button>
+          <p class="form-note" data-es="Respondo en menos de 24 horas · Confidencialidad garantizada" data-en="I respond within 24 hours · Confidentiality guaranteed">Respondo en menos de 24 horas · Confidencialidad garantizada</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     FOOTER
+============================== -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="/static/logo.svg" alt="Legal en Colombia"/>
+      <p data-es="Asesoría legal especializada para extranjeros y colombianos en el exterior. Con atención en español e inglés desde Medellín, Colombia." data-en="Specialised legal advice for foreigners and Colombians abroad. With attention in Spanish and English from Medellín, Colombia.">Asesoría legal especializada para extranjeros y colombianos en el exterior. Con atención en español e inglés desde Medellín, Colombia.</p>
+    </div>
+    <div class="footer-col">
+      <h5 data-es="Servicios" data-en="Services">Servicios</h5>
+      <ul>
+        <li><a href="#servicios" data-es="Derecho de Familia" data-en="Family Law">Derecho de Familia</a></li>
+        <li><a href="#servicios" data-es="Visas e Inmigración" data-en="Visas & Immigration">Visas e Inmigración</a></li>
+        <li><a href="#servicios" data-es="Servicios para Extranjeros" data-en="Expat Services">Servicios para Extranjeros</a></li>
+        <li><a href="#servicios" data-es="Contratos" data-en="Contracts">Contratos</a></li>
+        <li><a href="#servicios" data-es="Litigios" data-en="Litigation">Litigios</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5 data-es="Contacto" data-en="Contact">Contacto</h5>
+      <ul>
+        <li><a href="mailto:patricia@legalencolombia.com">patricia@legalencolombia.com</a></li>
+        <li><a href="https://wa.me/573000000000">WhatsApp</a></li>
+        <li><a href="#contacto" data-es="Consulta gratuita" data-en="Free consultation">Consulta gratuita</a></li>
+        <li><span>Medellín, Colombia</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Legal en Colombia — Patricia Ramos Higuera. <span data-es="Todos los derechos reservados." data-en="All rights reserved.">Todos los derechos reservados.</span></p>
+    <p data-es="Abogada licenciada en Colombia · TP activa" data-en="Licensed attorney in Colombia · Active professional card">Abogada licenciada en Colombia · TP activa</p>
+  </div>
+</footer>
+
+<script>
+let currentLang = 'es';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    if (b.textContent.toLowerCase() === lang) b.classList.add('active');
+  });
+  document.querySelectorAll('[data-es]').forEach(el => {
+    const text = el.getAttribute('data-' + lang);
+    if (text) el.innerHTML = text;
+  });
+  document.documentElement.lang = lang;
+}
+
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+const observer = new IntersectionObserver(
+  entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+  { threshold: 0.08 }
+);
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+document.querySelectorAll('.mobile-menu a').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+});
+</script>
+</body>
+</html>
