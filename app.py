@@ -62,7 +62,7 @@ Mensaje:
         msg['Reply-To'] = email
         msg.attach(MIMEText(body, 'plain', 'utf-8'))
 
-        with smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT) as server:
+        with smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT, timeout=10) as server:
             server.login(SMTP_USER, SMTP_PASS)
             server.sendmail(SMTP_USER, CONTACT_EMAIL, msg.as_string())
 
