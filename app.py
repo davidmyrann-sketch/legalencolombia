@@ -7,7 +7,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'legalencolombia-2026')
 
-CONTACT_EMAIL = os.environ.get('CONTACT_EMAIL', 'heidimybot@gmail.com')
+CONTACT_EMAIL = os.environ.get('CONTACT_EMAIL', 'pathy.higuera@gmail.com')
 SMTP_HOST     = 'smtp.gmail.com'
 SMTP_PORT     = 465
 SMTP_USER     = 'heidimybot@gmail.com'
