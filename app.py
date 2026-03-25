@@ -70,7 +70,7 @@ Mensaje:
         flash('¡Gracias! Le responderé en menos de 24 horas. / Thank you! I\'ll respond within 24 hours.', 'success')
     except Exception as e:
         app.logger.error(f'Mail error: {e}')
-        flash('Error al enviar. Por favor contácteme por WhatsApp. / Error sending. Please contact me via WhatsApp.', 'error')
+        flash(f'Error: {e}', 'error')
 
     return redirect(url_for('index') + '#contacto')
 
