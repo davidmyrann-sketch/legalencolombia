@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  {% if lang == 'en' %}
+  <title>Blog — Legal en Colombia | Patricia Ramos Higuera, Attorney</title>
+  <meta name="description" content="Legal articles and guides for foreigners in Colombia. Divorce, visas, custody and more — written by Colombian attorney Patricia Ramos Higuera."/>
+  {% else %}
+  <title>Blog — Legal en Colombia | Patricia Ramos Higuera, Abogada</title>
+  <meta name="description" content="Artículos y guías legales para extranjeros en Colombia. Divorcio, visas, custodia y más — escritos por la abogada Patricia Ramos Higuera."/>
+  {% endif %}
+  <link rel="canonical" href="https://www.legalencolombia.com/blog"/>
+  <link rel="icon" type="image/svg+xml" href="/static/logo.svg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/static/style.css"/>
+  <style>
+    .blog-hero { background: linear-gradient(135deg,#1a1a2e 0%,#16213e 60%,#0f3460 100%); padding: 80px 24px 60px; text-align:center; color:white; }
+    .blog-hero h1 { font-family:'Playfair Display',serif; font-size:clamp(28px,5vw,48px); margin-bottom:12px; }
+    .blog-hero p { color:rgba(255,255,255,0.7); font-size:17px; max-width:520px; margin:0 auto; }
+    .blog-container { max-width:860px; margin:0 auto; padding:48px 24px 80px; }
+    .blog-grid { display:flex; flex-direction:column; gap:32px; }
+    .blog-card { background:white; border-radius:14px; box-shadow:0 2px 16px rgba(0,0,0,0.07); overflow:hidden; display:flex; flex-direction:column; transition:transform 0.2s,box-shadow 0.2s; }
+    .blog-card:hover { transform:translateY(-3px); box-shadow:0 8px 32px rgba(0,0,0,0.12); }
+    .blog-card-body { padding:28px 32px; }
+    .blog-tag { display:inline-block; background:#f0e6ff; color:#6b21a8; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px; margin-bottom:12px; text-transform:uppercase; letter-spacing:0.5px; }
+    .blog-card h2 { font-family:'Playfair Display',serif; font-size:22px; color:#1a1a2e; margin-bottom:10px; line-height:1.35; }
+    .blog-card h2 a { text-decoration:none; color:inherit; }
+    .blog-card h2 a:hover { color:#c0395a; }
+    .blog-excerpt { color:#555; font-size:15px; line-height:1.6; margin-bottom:16px; }
+    .blog-meta { font-size:12px; color:#aaa; display:flex; align-items:center; justify-content:space-between; }
+    .btn-read { background:#c0395a; color:white; padding:9px 20px; border-radius:8px; text-decoration:none; font-size:13px; font-weight:600; transition:background 0.2s; }
+    .btn-read:hover { background:#a02d4a; }
+    .lang-bar { background:#f8f9fa; border-bottom:1px solid #eee; padding:10px 24px; display:flex; justify-content:flex-end; gap:8px; align-items:center; }
+    .lang-bar a { font-size:13px; color:#666; text-decoration:none; padding:4px 10px; border-radius:6px; }
+    .lang-bar a.active { background:#1a1a2e; color:white; font-weight:600; }
+    .back-link { display:inline-flex; align-items:center; gap:6px; color:#c0395a; text-decoration:none; font-size:14px; font-weight:500; margin-bottom:32px; }
+    .back-link:hover { text-decoration:underline; }
+  </style>
+</head>
+<body>
+<div class="lang-bar">
+  <span style="font-size:12px;color:#aaa;margin-right:8px;">{{ 'Idioma' if lang == 'es' else 'Language' }}:</span>
+  <a href="/blog?lang=es" class="{{ 'active' if lang == 'es' }}">ES</a>
+  <a href="/blog?lang=en" class="{{ 'active' if lang == 'en' }}">EN</a>
+</div>
+
+<div class="blog-hero">
+  <h1>{{ 'Blog' }}</h1>
+  <p>{{ 'Guías y artículos legales para extranjeros en Colombia' if lang == 'es' else 'Legal guides and articles for foreigners in Colombia' }}</p>
+</div>
+
+<div class="blog-container">
+  <a href="/" class="back-link">← {{ 'Volver al inicio' if lang == 'es' else 'Back to home' }}</a>
+  <div class="blog-grid">
+    {% for post in posts %}
+    <div class="blog-card">
+      <div class="blog-card-body">
+        <span class="blog-tag">{{ 'Divorcio' if lang == 'es' else 'Divorce' }}</span>
+        <h2><a href="/blog/{{ post.slug }}?lang={{ lang }}">{{ post.title[lang] }}</a></h2>
+        <p class="blog-excerpt">{{ post.excerpt[lang] }}</p>
+        <div class="blog-meta">
+          <span>{{ post.date_display[lang] }}</span>
+          <a class="btn-read" href="/blog/{{ post.slug }}?lang={{ lang }}">
+            {{ 'Leer artículo →' if lang == 'es' else 'Read article →' }}
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+</body>
+</html>

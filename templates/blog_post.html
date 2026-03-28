@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{{ post.title[lang] }} — Legal en Colombia</title>
+  <meta name="description" content="{{ post.meta_description[lang] }}"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://www.legalencolombia.com/blog/{{ post.slug }}"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="{{ post.title[lang] }}"/>
+  <meta property="og:description" content="{{ post.meta_description[lang] }}"/>
+  <meta property="og:url" content="https://www.legalencolombia.com/blog/{{ post.slug }}"/>
+  <meta property="og:site_name" content="Legal en Colombia"/>
+
+  <!-- Hreflang -->
+  <link rel="alternate" hreflang="es" href="https://www.legalencolombia.com/blog/{{ post.slug }}?lang=es"/>
+  <link rel="alternate" hreflang="en" href="https://www.legalencolombia.com/blog/{{ post.slug }}?lang=en"/>
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{{ post.title[lang] }}",
+    "description": "{{ post.meta_description[lang] }}",
+    "datePublished": "{{ post.date }}",
+    "author": {
+      "@type": "Person",
+      "name": "Patricia Ramos Higuera",
+      "jobTitle": "{{ 'Abogada' if lang == 'es' else 'Attorney at Law' }}",
+      "url": "https://www.legalencolombia.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Legal en Colombia",
+      "url": "https://www.legalencolombia.com"
+    },
+    "inLanguage": "{{ lang }}",
+    "url": "https://www.legalencolombia.com/blog/{{ post.slug }}"
+  }
+  </script>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "{{ '¿Tengo que viajar a Colombia para divorciarme?' if lang == 'es' else 'Do I have to travel to Colombia to get divorced?' }}",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "{{ 'No. Es posible tramitar el divorcio en Colombia de manera 100% remota, sin necesidad de viajar al país.' if lang == 'es' else 'No. It is possible to process a divorce in Colombia 100% remotely, without needing to travel to the country.' }}"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "{{ '¿Cuánto tarda el divorcio de mutuo acuerdo en Colombia?' if lang == 'es' else 'How long does a mutual consent divorce in Colombia take?' }}",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "{{ 'El trámite ante notaría puede tomar entre 2 y 4 semanas. Si hay hijos menores, se suma el tiempo de revisión del ICBF.' if lang == 'es' else 'The notarial process typically takes 2 to 4 weeks. If there are minor children, additional time is needed for ICBF review.' }}"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="/static/logo.svg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/static/style.css"/>
+  <style>
+    .lang-bar { background:#f8f9fa; border-bottom:1px solid #eee; padding:10px 24px; display:flex; justify-content:flex-end; gap:8px; align-items:center; }
+    .lang-bar a { font-size:13px; color:#666; text-decoration:none; padding:4px 10px; border-radius:6px; }
+    .lang-bar a.active { background:#1a1a2e; color:white; font-weight:600; }
+    .post-wrap { max-width:740px; margin:0 auto; padding:48px 24px 80px; }
+    .back-link { display:inline-flex; align-items:center; gap:6px; color:#c0395a; text-decoration:none; font-size:14px; font-weight:500; margin-bottom:32px; }
+    .back-link:hover { text-decoration:underline; }
+    .post-tag { display:inline-block; background:#f0e6ff; color:#6b21a8; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px; margin-bottom:16px; text-transform:uppercase; letter-spacing:0.5px; }
+    .post-title { font-family:'Playfair Display',serif; font-size:clamp(26px,4vw,40px); color:#1a1a2e; line-height:1.2; margin-bottom:12px; }
+    .post-meta { font-size:13px; color:#aaa; margin-bottom:32px; padding-bottom:24px; border-bottom:1px solid #eee; }
+    .post-body { font-size:17px; line-height:1.75; color:#333; }
+    .post-body p { margin-bottom:20px; }
+    .post-intro { font-size:19px; color:#444; line-height:1.7; margin-bottom:28px; font-style:italic; }
+    .post-question { background:#fff8e1; border-left:4px solid #f59e0b; padding:16px 20px; border-radius:0 8px 8px 0; margin:28px 0 8px; font-size:18px; font-weight:700; color:#1a1a2e; }
+    .post-answer { background:#f0fdf4; border-left:4px solid #22c55e; padding:16px 20px; border-radius:0 8px 8px 0; margin-bottom:28px; font-size:17px; color:#333; }
+    .post-body h2 { font-family:'Playfair Display',serif; font-size:24px; color:#1a1a2e; margin:36px 0 14px; }
+    .post-body ul { margin:0 0 20px 0; padding-left:0; list-style:none; }
+    .post-body ul li { padding:8px 0 8px 28px; position:relative; border-bottom:1px solid #f0f0f0; font-size:15.5px; }
+    .post-body ul li:last-child { border-bottom:none; }
+    .post-body ul li::before { content:"✓"; position:absolute; left:0; color:#22c55e; font-weight:700; }
+    .post-cta { background:linear-gradient(135deg,#1a1a2e,#0f3460); color:white; border-radius:14px; padding:32px; margin:40px 0; text-align:center; }
+    .post-cta p { font-size:17px; line-height:1.6; margin-bottom:20px; color:rgba(255,255,255,0.9); }
+    .post-cta a { background:#c0395a; color:white; padding:13px 28px; border-radius:8px; text-decoration:none; font-weight:700; font-size:15px; display:inline-block; }
+    .post-cta a:hover { background:#a02d4a; }
+    .author-box { background:#f8f9fa; border-radius:12px; padding:20px 24px; margin-top:40px; display:flex; gap:16px; align-items:center; }
+    .author-box img { width:56px; height:56px; border-radius:50%; object-fit:cover; }
+    .author-box .author-info strong { display:block; font-size:15px; color:#1a1a2e; }
+    .author-box .author-info span { font-size:13px; color:#777; }
+  </style>
+</head>
+<body>
+
+<div class="lang-bar">
+  <span style="font-size:12px;color:#aaa;margin-right:8px;">{{ 'Idioma' if lang == 'es' else 'Language' }}:</span>
+  <a href="/blog/{{ post.slug }}?lang=es" class="{{ 'active' if lang == 'es' }}">ES</a>
+  <a href="/blog/{{ post.slug }}?lang=en" class="{{ 'active' if lang == 'en' }}">EN</a>
+</div>
+
+<article class="post-wrap">
+  <a href="/blog?lang={{ lang }}" class="back-link">← {{ 'Volver al blog' if lang == 'es' else 'Back to blog' }}</a>
+
+  <span class="post-tag">{{ 'Divorcio' if lang == 'es' else 'Divorce' }}</span>
+  <h1 class="post-title">{{ post.title[lang] }}</h1>
+  <div class="post-meta">
+    Patricia Ramos Higuera &nbsp;·&nbsp; {{ post.date_display[lang] }}
+  </div>
+
+  <div class="post-body">
+    {% for block in post.content[lang] %}
+      {% if block.type == 'intro' %}
+        <p class="post-intro">{{ block.text }}</p>
+      {% elif block.type == 'question' %}
+        <div class="post-question">{{ block.text }}</div>
+      {% elif block.type == 'answer' %}
+        <div class="post-answer">{{ block.text|safe }}</div>
+      {% elif block.type == 'h2' %}
+        <h2>{{ block.text }}</h2>
+      {% elif block.type == 'p' %}
+        <p>{{ block.text }}</p>
+      {% elif block.type == 'list' %}
+        <ul>
+          {% for item in block.items %}
+          <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      {% elif block.type == 'cta' %}
+        <div class="post-cta">
+          <p>{{ block.text }}</p>
+          <a href="/#contacto">
+            {{ 'Solicitar consulta gratuita →' if lang == 'es' else 'Request a free consultation →' }}
+          </a>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <div class="author-box">
+    <img src="/static/patricia-profile.png" alt="Patricia Ramos Higuera"/>
+    <div class="author-info">
+      <strong>Patricia Ramos Higuera</strong>
+      <span>{{ 'Abogada especializada en derecho de familia y extranjería · Legal en Colombia' if lang == 'es' else 'Attorney specializing in family law and immigration · Legal en Colombia' }}</span>
+    </div>
+  </div>
+</article>
+
+</body>
+</html>
