@@ -17,26 +17,29 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="/static/style.css"/>
   <style>
-    .blog-hero { background: linear-gradient(135deg,#1a1a2e 0%,#16213e 60%,#0f3460 100%); padding: 80px 24px 60px; text-align:center; color:white; }
+    :root { --navy:#1a1a2e; --navy2:#16213e; --navy3:#0f3460; --pink:#c0395a; --pink-hover:#a02d4a; --gold:#d4a843; }
+    .blog-hero { background: linear-gradient(135deg,var(--navy) 0%,var(--navy2) 60%,var(--navy3) 100%); padding: 80px 24px 60px; text-align:center; color:white; }
     .blog-hero h1 { font-family:'Playfair Display',serif; font-size:clamp(28px,5vw,48px); margin-bottom:12px; }
     .blog-hero p { color:rgba(255,255,255,0.7); font-size:17px; max-width:520px; margin:0 auto; }
     .blog-container { max-width:860px; margin:0 auto; padding:48px 24px 80px; }
     .blog-grid { display:flex; flex-direction:column; gap:32px; }
-    .blog-card { background:white; border-radius:14px; box-shadow:0 2px 16px rgba(0,0,0,0.07); overflow:hidden; display:flex; flex-direction:column; transition:transform 0.2s,box-shadow 0.2s; }
-    .blog-card:hover { transform:translateY(-3px); box-shadow:0 8px 32px rgba(0,0,0,0.12); }
+    .blog-card { background:white; border-radius:14px; box-shadow:0 2px 16px rgba(0,0,0,0.07); overflow:hidden; display:flex; flex-direction:column; transition:transform 0.2s,box-shadow 0.2s; border-top:4px solid var(--pink); }
+    .blog-card:hover { transform:translateY(-3px); box-shadow:0 8px 32px rgba(192,57,90,0.15); }
     .blog-card-body { padding:28px 32px; }
-    .blog-tag { display:inline-block; background:#f0e6ff; color:#6b21a8; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px; margin-bottom:12px; text-transform:uppercase; letter-spacing:0.5px; }
-    .blog-card h2 { font-family:'Playfair Display',serif; font-size:22px; color:#1a1a2e; margin-bottom:10px; line-height:1.35; }
+    .blog-tag { display:inline-block; background:#fdf0f3; color:var(--pink); font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px; margin-bottom:12px; text-transform:uppercase; letter-spacing:0.5px; }
+    .blog-card h2 { font-family:'Playfair Display',serif; font-size:22px; color:var(--navy); margin-bottom:10px; line-height:1.35; }
     .blog-card h2 a { text-decoration:none; color:inherit; }
-    .blog-card h2 a:hover { color:#c0395a; }
+    .blog-card h2 a:hover { color:var(--pink); }
     .blog-excerpt { color:#555; font-size:15px; line-height:1.6; margin-bottom:16px; }
     .blog-meta { font-size:12px; color:#aaa; display:flex; align-items:center; justify-content:space-between; }
-    .btn-read { background:#c0395a; color:white; padding:9px 20px; border-radius:8px; text-decoration:none; font-size:13px; font-weight:600; transition:background 0.2s; }
-    .btn-read:hover { background:#a02d4a; }
-    .lang-bar { background:#f8f9fa; border-bottom:1px solid #eee; padding:10px 24px; display:flex; justify-content:flex-end; gap:8px; align-items:center; }
-    .lang-bar a { font-size:13px; color:#666; text-decoration:none; padding:4px 10px; border-radius:6px; }
-    .lang-bar a.active { background:#1a1a2e; color:white; font-weight:600; }
-    .back-link { display:inline-flex; align-items:center; gap:6px; color:#c0395a; text-decoration:none; font-size:14px; font-weight:500; margin-bottom:32px; }
+    .btn-read { background:var(--pink); color:white; padding:9px 20px; border-radius:8px; text-decoration:none; font-size:13px; font-weight:600; transition:background 0.2s; }
+    .btn-read:hover { background:var(--pink-hover); }
+    .lang-bar { background:var(--navy); border-bottom:1px solid rgba(255,255,255,0.1); padding:10px 24px; display:flex; justify-content:flex-end; gap:8px; align-items:center; }
+    .lang-bar span { color:rgba(255,255,255,0.5); }
+    .lang-bar a { font-size:13px; color:rgba(255,255,255,0.7); text-decoration:none; padding:4px 10px; border-radius:6px; transition:background 0.2s; }
+    .lang-bar a:hover { background:rgba(255,255,255,0.1); color:white; }
+    .lang-bar a.active { background:var(--pink); color:white; font-weight:600; }
+    .back-link { display:inline-flex; align-items:center; gap:6px; color:var(--pink); text-decoration:none; font-size:14px; font-weight:500; margin-bottom:32px; }
     .back-link:hover { text-decoration:underline; }
   </style>
 </head>

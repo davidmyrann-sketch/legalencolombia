@@ -75,32 +75,35 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="/static/style.css"/>
   <style>
-    .lang-bar { background:#f8f9fa; border-bottom:1px solid #eee; padding:10px 24px; display:flex; justify-content:flex-end; gap:8px; align-items:center; }
-    .lang-bar a { font-size:13px; color:#666; text-decoration:none; padding:4px 10px; border-radius:6px; }
-    .lang-bar a.active { background:#1a1a2e; color:white; font-weight:600; }
+    :root { --navy:#1a1a2e; --navy2:#16213e; --navy3:#0f3460; --pink:#c0395a; --pink-hover:#a02d4a; --gold:#d4a843; }
+    .lang-bar { background:var(--navy); border-bottom:1px solid rgba(255,255,255,0.1); padding:10px 24px; display:flex; justify-content:flex-end; gap:8px; align-items:center; }
+    .lang-bar span { color:rgba(255,255,255,0.5); }
+    .lang-bar a { font-size:13px; color:rgba(255,255,255,0.7); text-decoration:none; padding:4px 10px; border-radius:6px; transition:background 0.2s; }
+    .lang-bar a:hover { background:rgba(255,255,255,0.1); color:white; }
+    .lang-bar a.active { background:var(--pink); color:white; font-weight:600; }
     .post-wrap { max-width:740px; margin:0 auto; padding:48px 24px 80px; }
-    .back-link { display:inline-flex; align-items:center; gap:6px; color:#c0395a; text-decoration:none; font-size:14px; font-weight:500; margin-bottom:32px; }
+    .back-link { display:inline-flex; align-items:center; gap:6px; color:var(--pink); text-decoration:none; font-size:14px; font-weight:500; margin-bottom:32px; }
     .back-link:hover { text-decoration:underline; }
-    .post-tag { display:inline-block; background:#f0e6ff; color:#6b21a8; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px; margin-bottom:16px; text-transform:uppercase; letter-spacing:0.5px; }
-    .post-title { font-family:'Playfair Display',serif; font-size:clamp(26px,4vw,40px); color:#1a1a2e; line-height:1.2; margin-bottom:12px; }
-    .post-meta { font-size:13px; color:#aaa; margin-bottom:32px; padding-bottom:24px; border-bottom:1px solid #eee; }
+    .post-tag { display:inline-block; background:#fdf0f3; color:var(--pink); font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px; margin-bottom:16px; text-transform:uppercase; letter-spacing:0.5px; }
+    .post-title { font-family:'Playfair Display',serif; font-size:clamp(26px,4vw,40px); color:var(--navy); line-height:1.2; margin-bottom:12px; }
+    .post-meta { font-size:13px; color:#aaa; margin-bottom:32px; padding-bottom:24px; border-bottom:2px solid #f0f0f0; }
     .post-body { font-size:17px; line-height:1.75; color:#333; }
     .post-body p { margin-bottom:20px; }
-    .post-intro { font-size:19px; color:#444; line-height:1.7; margin-bottom:28px; font-style:italic; }
-    .post-question { background:#fff8e1; border-left:4px solid #f59e0b; padding:16px 20px; border-radius:0 8px 8px 0; margin:28px 0 8px; font-size:18px; font-weight:700; color:#1a1a2e; }
+    .post-intro { font-size:19px; color:#444; line-height:1.7; margin-bottom:28px; font-style:italic; border-left:4px solid var(--gold); padding-left:20px; }
+    .post-question { background:#fdf0f3; border-left:4px solid var(--pink); padding:16px 20px; border-radius:0 8px 8px 0; margin:28px 0 8px; font-size:18px; font-weight:700; color:var(--navy); }
     .post-answer { background:#f0fdf4; border-left:4px solid #22c55e; padding:16px 20px; border-radius:0 8px 8px 0; margin-bottom:28px; font-size:17px; color:#333; }
-    .post-body h2 { font-family:'Playfair Display',serif; font-size:24px; color:#1a1a2e; margin:36px 0 14px; }
+    .post-body h2 { font-family:'Playfair Display',serif; font-size:24px; color:var(--navy); margin:36px 0 14px; }
     .post-body ul { margin:0 0 20px 0; padding-left:0; list-style:none; }
-    .post-body ul li { padding:8px 0 8px 28px; position:relative; border-bottom:1px solid #f0f0f0; font-size:15.5px; }
+    .post-body ul li { padding:10px 0 10px 28px; position:relative; border-bottom:1px solid #f0f0f0; font-size:15.5px; }
     .post-body ul li:last-child { border-bottom:none; }
-    .post-body ul li::before { content:"✓"; position:absolute; left:0; color:#22c55e; font-weight:700; }
-    .post-cta { background:linear-gradient(135deg,#1a1a2e,#0f3460); color:white; border-radius:14px; padding:32px; margin:40px 0; text-align:center; }
+    .post-body ul li::before { content:"✓"; position:absolute; left:0; color:var(--pink); font-weight:700; }
+    .post-cta { background:linear-gradient(135deg,var(--navy),var(--navy3)); color:white; border-radius:14px; padding:36px; margin:40px 0; text-align:center; }
     .post-cta p { font-size:17px; line-height:1.6; margin-bottom:20px; color:rgba(255,255,255,0.9); }
-    .post-cta a { background:#c0395a; color:white; padding:13px 28px; border-radius:8px; text-decoration:none; font-weight:700; font-size:15px; display:inline-block; }
-    .post-cta a:hover { background:#a02d4a; }
-    .author-box { background:#f8f9fa; border-radius:12px; padding:20px 24px; margin-top:40px; display:flex; gap:16px; align-items:center; }
+    .post-cta a { background:var(--pink); color:white; padding:13px 28px; border-radius:8px; text-decoration:none; font-weight:700; font-size:15px; display:inline-block; transition:background 0.2s; }
+    .post-cta a:hover { background:var(--pink-hover); }
+    .author-box { background:#fdf0f3; border-radius:12px; padding:20px 24px; margin-top:40px; display:flex; gap:16px; align-items:center; border-left:4px solid var(--pink); }
     .author-box img { width:56px; height:56px; border-radius:50%; object-fit:cover; }
-    .author-box .author-info strong { display:block; font-size:15px; color:#1a1a2e; }
+    .author-box .author-info strong { display:block; font-size:15px; color:var(--navy); }
     .author-box .author-info span { font-size:13px; color:#777; }
   </style>
 </head>
@@ -135,7 +138,7 @@
         <p>{{ block.text }}</p>
       {% elif block.type == 'list' %}
         <ul>
-          {% for item in block.items %}
+          {% for item in block['items'] %}
           <li>{{ item }}</li>
           {% endfor %}
         </ul>
