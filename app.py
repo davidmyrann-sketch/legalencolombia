@@ -3,7 +3,7 @@ import smtplib
 import threading
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, Response
 
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'legalencolombia-2026')
@@ -13,6 +13,29 @@ SMTP_HOST     = 'smtp.gmail.com'
 SMTP_PORT     = 587
 SMTP_USER     = 'heidimybot@gmail.com'
 SMTP_PASS     = os.environ.get('SMTP_PASS', 'rdfsfbvwzbjahaia')
+
+@app.before_request
+def canonical_www():
+    host = request.host.split(':')[0]
+    if host == 'legalencolombia.com':
+        return redirect('https://www.legalencolombia.com' + request.full_path.rstrip('?'), 301)
+
+@app.route('/robots.txt')
+def robots_txt():
+    return Response(
+        'User-agent: *\nAllow: /\nSitemap: https://www.legalencolombia.com/sitemap.xml\n',
+        mimetype='text/plain'
+    )
+
+@app.route('/sitemap.xml')
+def sitemap_xml():
+    xml = """<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.legalencolombia.com/</loc><lastmod>2026-05-25</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.legalencolombia.com/blog</loc><lastmod>2026-05-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.legalencolombia.com/blog/divorcio-colombia-sin-viajar</loc><lastmod>2026-03-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+</urlset>"""
+    return Response(xml, mimetype='application/xml')
 
 MATTER_LABELS = {
     'familia':  'Divorcio / Separación',
@@ -63,7 +86,7 @@ BLOG_POSTS = {
                 {'type': 'intro', 'text': 'Si te casaste en Colombia o con una persona colombiana y hoy estás considerando el divorcio, es completamente normal tener dudas, especialmente si ya no resides en el país.'},
                 {'type': 'question', 'text': '¿Tengo que viajar a Colombia para divorciarme?'},
                 {'type': 'answer', 'text': 'La respuesta es <strong>no</strong>. Sí es posible divorciarte sin viajar a Colombia, de manera legal, ágil y segura.'},
-                {'type': 'p', 'text': 'En Pathy Higuera Abogados contamos con más de 6 años de experiencia acompañando a extranjeros en este tipo de procesos. Sabemos que la distancia, el tiempo y la incertidumbre pueden generar preocupación, por eso trabajamos para que puedas gestionar tu divorcio de forma clara, organizada y sin complicaciones.'},
+                {'type': 'p', 'text': 'En Legal en Colombia contamos con más de 10 años de experiencia acompañando a extranjeros en este tipo de procesos. Sabemos que la distancia, el tiempo y la incertidumbre pueden generar preocupación, por eso trabajamos para que puedas gestionar tu divorcio de forma clara, organizada y sin complicaciones.'},
                 {'type': 'h2', 'text': 'Proceso 100% a distancia'},
                 {'type': 'p', 'text': 'No es necesario que te desplaces a Colombia. Puedes adelantar un proceso 100% legal y completamente a distancia, evitando procedimientos judiciales largos que pueden extenderse durante años. Nuestro objetivo es ayudarte a cerrar esta etapa y avanzar con tranquilidad, en el menor tiempo posible y con total seguridad jurídica.'},
                 {'type': 'p', 'text': 'En la mayoría de los casos, el divorcio de mutuo acuerdo se realiza ante notaría, lo que permite que el trámite sea mucho más rápido y menos desgastante a nivel emocional.'},
@@ -87,7 +110,7 @@ BLOG_POSTS = {
                 {'type': 'intro', 'text': 'If you got married in Colombia or to a Colombian national and are now considering divorce, it is completely normal to have questions—especially if you no longer live in the country.'},
                 {'type': 'question', 'text': 'Do I have to travel to Colombia to get divorced?'},
                 {'type': 'answer', 'text': 'The answer is <strong>no</strong>. It is possible to get divorced without traveling to Colombia, legally, efficiently, and safely.'},
-                {'type': 'p', 'text': 'At Pathy Higuera Abogados, we have more than 6 years of experience guiding foreigners through these processes. We understand that distance, time, and uncertainty can cause concern, which is why we work to help you manage your divorce in a clear, organized, and stress-free way.'},
+                {'type': 'p', 'text': 'At Legal en Colombia, we have more than 10 years of experience guiding foreigners through these processes. We understand that distance, time, and uncertainty can cause concern, which is why we work to help you manage your divorce in a clear, organized, and stress-free way.'},
                 {'type': 'h2', 'text': '100% Remote Process'},
                 {'type': 'p', 'text': 'You do not need to travel to Colombia. You can carry out a 100% legal process entirely from a distance, avoiding lengthy court proceedings that can drag on for years. Our goal is to help you close this chapter and move forward with peace of mind, in the shortest time possible and with complete legal security.'},
                 {'type': 'p', 'text': 'In most cases, a mutual consent divorce is conducted before a notary, which makes the process much faster and less emotionally draining.'},
@@ -129,8 +152,10 @@ def blog_post(slug):
     lang = request.args.get('lang', 'es')
     return render_template('blog_post.html', post=post, lang=lang)
 
-@app.route('/contacto', methods=['POST'])
+@app.route('/contacto', methods=['GET', 'POST'])
 def contacto():
+    if request.method == 'GET':
+        return redirect('/#contacto')
     name    = request.form.get('name', '').strip()
     email   = request.form.get('email', '').strip()
     country = request.form.get('country', '').strip()

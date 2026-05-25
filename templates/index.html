@@ -3,13 +3,63 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#1a1a2e"/>
+  <title>Abogada para Extranjeros en Colombia | Patricia Ramos Higuera</title>
   <meta name="description" content="Patricia Ramos Higuera — Abogada especializada en derecho de familia, visas, extranjería y asesoría legal para extranjeros en Colombia."/>
-  <meta name="keywords" content="abogada colombia, lawyer colombia, divorcio colombia, visa colombia, expat lawyer colombia, legal en colombia"/>
-  <title>Legal en Colombia — Patricia Ramos Higuera, Abogada</title>
+
   <link rel="icon" type="image/svg+xml" href="/static/logo.svg"/>
+  <link rel="canonical" href="https://www.legalencolombia.com/"/>
+  <link rel="alternate" hreflang="es" href="https://www.legalencolombia.com/"/>
+  <link rel="alternate" hreflang="x-default" href="https://www.legalencolombia.com/"/>
+
+  <!-- OG + Twitter -->
+  <meta property="og:type"             content="website"/>
+  <meta property="og:site_name"        content="Legal en Colombia"/>
+  <meta property="og:title"            content="Abogada para Extranjeros en Colombia | Patricia Ramos Higuera"/>
+  <meta property="og:description"      content="Especialista en derecho de familia, visas y extranjería. Divorcio, custodia, visas de residencia — 100% a distancia desde cualquier país."/>
+  <meta property="og:url"              content="https://www.legalencolombia.com/"/>
+  <meta property="og:image"            content="https://www.legalencolombia.com/static/patricia-profile.png"/>
+  <meta property="og:locale"           content="es_CO"/>
+  <meta property="og:locale:alternate" content="en_US"/>
+  <meta name="twitter:card"            content="summary_large_image"/>
+  <meta name="twitter:title"           content="Abogada para Extranjeros en Colombia | Patricia Ramos Higuera"/>
+  <meta name="twitter:description"     content="Divorcio, custodia, visas y más — 100% a distancia. Español e inglés."/>
+  <meta name="twitter:image"           content="https://www.legalencolombia.com/static/patricia-profile.png"/>
+
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://www.legalencolombia.com/#website",
+        "url": "https://www.legalencolombia.com",
+        "name": "Legal en Colombia",
+        "inLanguage": ["es", "en"]
+      },
+      {
+        "@type": ["Person", "LegalService"],
+        "@id": "https://www.legalencolombia.com/#patricia",
+        "name": "Patricia Ramos Higuera",
+        "jobTitle": "Abogada",
+        "description": "Abogada colombiana especializada en derecho de familia, visas, extranjería y asesoría legal para extranjeros en Colombia.",
+        "url": "https://www.legalencolombia.com",
+        "image": "https://www.legalencolombia.com/static/patricia-profile.png",
+        "areaServed": { "@type": "Country", "name": "Colombia" },
+        "knowsAbout": ["Derecho de Familia", "Visas Colombia", "Derecho Migratorio", "Divorcio en Colombia", "Custodia de Hijos"],
+        "knowsLanguage": ["es", "en"],
+        "address": { "@type": "PostalAddress", "addressLocality": "Barranquilla", "addressCountry": "CO" }
+      }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'"/>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap"/></noscript>
   <link rel="stylesheet" href="/static/style.css"/>
 </head>
 <body>
@@ -53,9 +103,8 @@
     <div class="hero-left fade-in">
       <div class="tag tag-pink" data-es="Abogada · Barranquilla / Cartagena, Colombia" data-en="Lawyer · Barranquilla / Cartagena, Colombia">Abogada · Barranquilla / Cartagena, Colombia</div>
       <h1>
-        <span data-es="Su situación legal en Colombia<br/><span class='gold'>tiene solución.</span>" data-en="Your legal situation in Colombia<br/><span class='gold'>has a solution.</span>">
-          Su situación legal en Colombia<br/><span class="gold">tiene solución.</span>
-        </span>
+        <span class="h1-es">Su situación legal en Colombia<br/><span class="gold">tiene solución.</span></span>
+        <span class="h1-en" style="display:none">Your legal situation in Colombia<br/><span class="gold">has a solution.</span></span>
       </h1>
       <span class="hero-title-sub" data-es="Patricia Ramos Higuera — Abogada" data-en="Patricia Ramos Higuera — Attorney at Law">Patricia Ramos Higuera — Abogada</span>
       <div class="hero-divider"></div>
@@ -545,6 +594,8 @@ function setLang(lang) {
     const text = el.getAttribute('data-' + lang);
     if (text) el.innerHTML = text;
   });
+  document.querySelectorAll('.h1-es').forEach(el => el.style.display = lang === 'es' ? '' : 'none');
+  document.querySelectorAll('.h1-en').forEach(el => el.style.display = lang === 'en' ? '' : 'none');
   document.documentElement.lang = lang;
 }
 
